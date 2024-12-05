@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURATOR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Edu AU VIC WA NT Hand', sans-serif;
+            background-color: #ddfff7;
+            color: #1f2232;
+        }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Hachi Maru Pop', cursive;
+            color: #b96ac9;
+        }
+        h2 {
+            color: #e980fc;
+        }
+        input[type="text"], input[type="password"], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #b96ac9;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ffd2fc;
+            color: #1f2232;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e980fc;
+            color: #fff;
+        }
+        .hidden {
+            display: none;
+        }
+        .mcq-container {
+            text-align: left;
+        }
+        .radio-button {
+            margin: 5px 0;
+        }
+        .suggestion {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #596475;
+            text-align: left;
+        }
+        .suggestion a {
+            color: #e980fc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .suggestion a:hover {
+            text-decoration: underline;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bc9ec1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CURATOR</h1>
+        <h2>Education is boring???.</h2>
+
+        <!-- Roll and Password Input -->
+        <div id="login-section">
+            <input type="text" id="roll" placeholder="Enter Roll">
+            <input type="password" id="password" placeholder="Enter Password">
+            <button id="login-btn">Login</button>
+        </div>
+
+        <!-- Validating Section -->
+        <div id="validating-section" class="hidden">
+            <p>Validating... Please wait.</p>
+        </div>
+
+        <!-- Exam Section -->
+        <div id="exam-section" class="hidden">
+            <p class="timer" id="timer">20:00</p>
+            <h2>MODE</h2>
+            <label class="radio-button"><input type="radio" name="mode" value="silent" id="silent"> Silent</label>
+            <label class="radio-button"><input type="radio" name="mode" value="study-booster" id="study-booster" checked> Study Booster</label>
+            <label class="radio-button"><input type="radio" name="mode" value="disaster" id="disaster"> Disaster</label>
+            <div class="mcq-container" id="mcq-section">
+                <h2>Questions</h2>
+                <p>1. What is 2 + 2?</p>
+                <label><input type="radio" name="q1" value="A"> A. 4</label>
+                <label><input type="radio" name="q1" value="B"> B. 3</label>
+                <label><input type="radio" name="q1" value="C"> C. 5</label>
+                <label><input type="radio" name="q1" value="D"> D. 6</label>
+
+                <p>2. What is the capital of France?</p>
+                <label><input type="radio" name="q2" value="A"> A. Paris</label>
+                <label><input type="radio" name="q2" value="B"> B. Rome</label>
+                <label><input type="radio" name="q2" value="C"> C. London</label>
+                <label><input type="radio" name="q2" value="D"> D. Berlin</label>
+
+                <p>3. What is H2O?</p>
+                <label><input type="radio" name="q3" value="A"> A. Water</label>
+                <label><input type="radio" name="q3" value="B"> B. Oxygen</label>
+                <label><input type="radio" name="q3" value="C"> C. Hydrogen</label>
+                <label><input type="radio" name="q3" value="D"> D. Helium</label> 
+                <p>4. What is the chemical symbol for water?</p>
+<label><input type="radio" name="q4" value="A"> A. H2O</label>
+<label><input type="radio" name="q4" value="B"> B. CO2</label>
+<label><input type="radio" name="q4" value="C"> C. O2</label>
+<label><input type="radio" name="q4" value="D"> D. NaCl</label>
+
+<p>5. What is the atomic number of carbon?</p>
+<label><input type="radio" name="q5" value="A"> A. 6</label>
+<label><input type="radio" name="q5" value="B"> B. 8</label>
+<label><input type="radio" name="q5" value="C"> C. 12</label>
+<label><input type="radio" name="q5" value="D"> D. 16</label>
+
+<p>6. What is the main gas in Earth's atmosphere?</p>
+<label><input type="radio" name="q6" value="A"> A. Nitrogen</label>
+<label><input type="radio" name="q6" value="B"> B. Oxygen</label>
+<label><input type="radio" name="q6" value="C"> C. Carbon Dioxide</label>
+<label><input type="radio" name="q6" value="D"> D. Hydrogen</label>
+
+<p>7. What is the chemical formula for methane?</p>
+<label><input type="radio" name="q7" value="A"> A. CH4</label>
+<label><input type="radio" name="q7" value="B"> B. CO2</label>
+<label><input type="radio" name="q7" value="C"> C. O2</label>
+<label><input type="radio" name="q7" value="D"> D. H2O</label>
+
+<p>8. What element has the symbol 'Na'?</p>
+<label><input type="radio" name="q8" value="A"> A. Sodium</label>
+<label><input type="radio" name="q8" value="B"> B. Nitrogen</label>
+<label><input type="radio" name="q8" value="C"> C. Neon</label>
+<label><input type="radio" name="q8" value="D"> D. Nickel</label>
+
+<p>9. What is the boiling point of water?</p>
+<label><input type="radio" name="q9" value="A"> A. 0°C</label>
+<label><input type="radio" name="q9" value="B"> B. 50°C</label>
+<label><input type="radio" name="q9" value="C"> C. 100°C</label>
+<label><input type="radio" name="q9" value="D"> D. 200°C</label>
+
+<p>10. What is the chemical formula for sodium chloride?</p>
+<label><input type="radio" name="q10" value="A"> A. NaCl</label>
+<label><input type="radio" name="q10" value="B"> B. Na2O</label>
+<label><input type="radio" name="q10" value="C"> C. NaOH</label>
+<label><input type="radio" name="q10" value="D"> D. Cl2</label>
+
+<p>11. What is the pH of pure water?</p>
+<label><input type="radio" name="q11" value="A"> A. 7</label>
+<label><input type="radio" name="q11" value="B"> B. 0</label>
+<label><input type="radio" name="q11" value="C"> C. 14</label>
+<label><input type="radio" name="q11" value="D"> D. 10</label>
+
+<p>12. What is the atomic symbol for gold?</p>
+<label><input type="radio" name="q12" value="A"> A. Au</label>
+<label><input type="radio" name="q12" value="B"> B. Ag</label>
+<label><input type="radio" name="q12" value="C"> C. Pb</label>
+<label><input type="radio" name="q12" value="D"> D. Fe</label>
+
+<p>13. What element is represented by the symbol 'O'?</p>
+<label><input type="radio" name="q13" value="A"> A. Oxygen</label>
+<label><input type="radio" name="q13" value="B"> B. Osmium</label>
+<label><input type="radio" name="q13" value="C"> C. Oganesson</label>
+<label><input type="radio" name="q13" value="D"> D. Opium</label>
+
+<p>14. What is the chemical symbol for hydrogen?</p>
+<label><input type="radio" name="q14" value="A"> A. H</label>
+<label><input type="radio" name="q14" value="B"> B. He</label>
+<label><input type="radio" name="q14" value="C"> C. O</label>
+<label><input type="radio" name="q14" value="D"> D. N</label>
+
+<p>15. What is the chemical formula for carbon dioxide?</p>
+<label><input type="radio" name="q15" value="A"> A. CO2</label>
+<label><input type="radio" name="q15" value="B"> B. C2H6</label>
+<label><input type="radio" name="q15" value="C"> C. CH4</label>
+<label><input type="radio" name="q15" value="D"> D. H2O</label>
+
+<p>16. Which of these elements is a noble gas?</p>
+<label><input type="radio" name="q16" value="A"> A. Argon</label>
+<label><input type="radio" name="q16" value="B"> B. Oxygen</label>
+<label><input type="radio" name="q16" value="C"> C. Nitrogen</label>
+<label><input type="radio" name="q16" value="D"> D. Carbon</label>
+
+<p>17. What is the atomic number of hydrogen?</p>
+<label><input type="radio" name="q17" value="A"> A. 1</label>
+<label><input type="radio" name="q17" value="B"> B. 2</label>
+<label><input type="radio" name="q17" value="C"> C. 3</label>
+<label><input type="radio" name="q17" value="D"> D. 4</label>
+
+<p>18. What is the chemical formula for ammonia?</p>
+<label><input type="radio" name="q18" value="A"> A. NH3</label>
+<label><input type="radio" name="q18" value="B"> B. H2O</label>
+<label><input type="radio" name="q18" value="C"> C. CO2</label>
+<label><input type="radio" name="q18" value="D"> D. O2</label>
+
+<p>19. What gas do plants absorb during photosynthesis?</p>
+<label><input type="radio" name="q19" value="A"> A. Carbon dioxide</label>
+<label><input type="radio" name="q19" value="B"> B. Oxygen</label>
+<label><input type="radio" name="q19" value="C"> C. Nitrogen</label>
+<label><input type="radio" name="q19" value="D"> D. Methane</label>
+
+<p>20. What is the atomic number of oxygen?</p>
+<label><input type="radio" name="q20" value="A"> A. 8</label>
+<label><input type="radio" name="q20" value="B"> B. 6</label>
+<label><input type="radio" name="q20" value="C"> C. 10</label>
+<label><input type="radio" name="q20" value="D"> D. 14</label>
+
+<p>21. What is the molecular weight of water (H2O)?</p>
+<label><input type="radio" name="q21" value="A"> A. 18 g/mol</label>
+<label><input type="radio" name="q21" value="B"> B. 16 g/mol</label>
+<label><input type="radio" name="q21" value="C"> C. 20 g/mol</label>
+<label><input type="radio" name="q21" value="D"> D. 22 g/mol</label>
+
+<p>22. What is the chemical formula for sulfuric acid?</p>
+<label><input type="radio" name="q22" value="A"> A. H2SO4</label>
+<label><input type="radio" name="q22" value="B"> B. HCl</label>
+<label><input type="radio" name="q22" value="C"> C. NaOH</label>
+<label><input type="radio" name="q22" value="D"> D. CO2</label>
+
+<p>23. What is the common name for NaHCO3?</p>
+<label><input type="radio" name="q23" value="A"> A. Baking soda</label>
+<label><input type="radio" name="q23" value="B"> B. Salt</label>
+<label><input type="radio" name="q23" value="C"> C. Sugar</label>
+<label><input type="radio" name="q23" value="D"> D. Vinegar</label>
+
+<p>24. Which element is essential for the formation of hemoglobin?</p>
+<label><input type="radio" name="q24" value="A"> A. Iron</label>
+<label><input type="radio" name="q24" value="B"> B. Calcium</label>
+<label><input type="radio" name="q24" value="C"> C. Magnesium</label>
+<label><input type="radio" name="q24" value="D"> D. Potassium</label>
+
+<p>25. What is the pH of stomach acid?</p>
+<label><input type="radio" name="q25" value="A"> A. 1-3</label>
+<label><input type="radio" name="q25" value="B"> B. 7</label>
+<label><input type="radio" name="q25" value="C"> C. 5</label>
+<label><input type="radio" name="q25" value="D"> D. 9</label>
+
+            </div>
+            <button id="submit-btn">Submit Exam</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="result-section" class="hidden">
+            <h2>Results</h2>
+            <p id="result-message"></p>
+            <div class="suggestion" id="suggestions"></div>
+        </div>
+
+        <audio id="bgMusic" loop>
+            <source src="1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <script>
+            const googleSheetApiKey = "AIzaSyDC_aqgXAhScsYg85qTTs1fQcUtgn2Z2xQ";
+            const googleSheetId = "1p_nnBZBvatMDfNnxGYWv6LY6JynglYGkYSiufHoTp5w";
+            const botToken = "7447671480:AAFtEWOh_y3k5UpIeUnV-5fJdV3L-RlqC6M";
+            const chatId = "906269717";
+
+            const bgMusic = document.getElementById("bgMusic");
+            const timerElement = document.getElementById("timer");
+            let timerInterval;
+
+            // Login Functionality
+            document.getElementById("login-btn").addEventListener("click", async () => {
+                const roll = document.getElementById("roll").value;
+                const password = document.getElementById("password").value;
+                const loginSection = document.getElementById("login-section");
+                const validatingSection = document.getElementById("validating-section");
+
+                loginSection.classList.add("hidden");
+                validatingSection.classList.remove("hidden");
+
+                try {
+                    const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${googleSheetId}/values/Sheet1?key=${googleSheetApiKey}`);
+                    const data = await response.json();
+                    const rows = data.values;
+
+                    const user = rows.find(row => row[0] === roll && row[1] === password);
+                    if (user) {
+                        validatingSection.classList.add("hidden");
+                        document.getElementById("exam-section").classList.remove("hidden");
+                        startTimer(1200);
+
+                        // Play initial background music
+                        bgMusic.src = "1.mp3";
+                        bgMusic.play();
+                    } else {
+                        alert("Invalid Roll or Password");
+                        validatingSection.classList.add("hidden");
+                        loginSection.classList.remove("hidden");
+                    }
+                } catch (error) {
+                    alert("Error validating user. Try again later.");
+                    console.error(error);
+                }
+            });
+
+            // Timer Functionality
+            function startTimer(duration) {
+                let time = duration;
+                timerInterval = setInterval(() => {
+                    const minutes = Math.floor(time / 60);
+                    const seconds = time % 60;
+                    timerElement.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+                    if (--time < 0) {
+                        clearInterval(timerInterval);
+                        submitExam();
+                    }
+                }, 1000);
+            }
+
+            // Radio Button Music Control
+            document.querySelectorAll('input[name="mode"]').forEach(radio => {
+                radio.addEventListener("change", event => {
+                    switch (event.target.value) {
+                        case "silent":
+                            bgMusic.pause();
+                            bgMusic.currentTime = 0;
+                            break;
+                        case "study-booster":
+                            bgMusic.src = "1.mp3";
+                            bgMusic.play();
+                            break;
+                        case "disaster":
+                            bgMusic.src = "2.mp3";
+                            bgMusic.play();
+                            break;
+                    }
+                });
+            });
+
+            // Exam Submission Functionality
+            async function submitExam() {
+                bgMusic.pause(); // Stop music on exam submission
+                const answers = {
+                    q1: "A",
+                    q2: "A",
+                    q3: "A", 
+                    q4: "D", 
+                    q5: "A",
+                    q6: "B",
+                    q7: "C", 
+                    q8: "D", 
+                    q9: "A",
+                    q10: "B",
+                    q11: "A", 
+                    q12: "A", 
+                    q13: "A",
+                    q14: "A",
+                    q15: "A", 
+                    q16: "A",  
+                    q17: "A",
+                    q18: "A",
+                    q19: "A", 
+                    q20: "A",  
+                    q21: "A",
+                    q22: "A",
+                    q23: "A", 
+                    q24: "A",  
+                    q25: "A" };
+              
+
+                const userAnswers = {
+                   
+                    q1: document.querySelector('input[name="q1"]:checked')?.value || "blank",
+                    q2: document.querySelector('input[name="q2"]:checked')?.value || "blank",
+                    q3: document.querySelector('input[name="q3"]:checked')?.value || "blank",
+                    q4: document.querySelector('input[name="q4"]:checked')?.value || "blank",
+                    q5: document.querySelector('input[name="q5"]:checked')?.value || "blank",
+                    q6: document.querySelector('input[name="q6"]:checked')?.value || "blank",
+                    q7: document.querySelector('input[name="q7"]:checked')?.value || "blank",
+q8: document.querySelector('input[name="q8"]:checked')?.value || "blank",
+q9: document.querySelector('input[name="q9"]:checked')?.value || "blank",
+q10: document.querySelector('input[name="q10"]:checked')?.value || "blank",
+q11: document.querySelector('input[name="q11"]:checked')?.value || "blank",
+q12: document.querySelector('input[name="q12"]:checked')?.value || "blank",
+q13: document.querySelector('input[name="q13"]:checked')?.value || "blank",
+q14: document.querySelector('input[name="q14"]:checked')?.value || "blank",
+q15: document.querySelector('input[name="q15"]:checked')?.value || "blank",
+q16: document.querySelector('input[name="q16"]:checked')?.value || "blank",
+q17: document.querySelector('input[name="q17"]:checked')?.value || "blank",
+q18: document.querySelector('input[name="q18"]:checked')?.value || "blank",
+q19: document.querySelector('input[name="q19"]:checked')?.value || "blank",
+q20: document.querySelector('input[name="q20"]:checked')?.value || "blank",
+q21: document.querySelector('input[name="q21"]:checked')?.value || "blank",
+q22: document.querySelector('input[name="q22"]:checked')?.value || "blank",
+q23: document.querySelector('input[name="q23"]:checked')?.value || "blank",
+q24: document.querySelector('input[name="q24"]:checked')?.value || "blank",
+q25: document.querySelector('input[name="q25"]:checked')?.value || "blank"
+
+                };
+
+                let score = 0;
+                let wrongOrBlank = [];
+
+                for (const [key, value] of Object.entries(userAnswers)) {
+                    if (value === "blank") {
+                        wrongOrBlank.push(key.slice(1));
+                    } else if (value === answers[key]) {
+                        score++;
+                    } else {
+                        score -= 0.25;
+                        wrongOrBlank.push(key.slice(1));
+                    }
+                }
+
+                const suggestions = [];
+                if (wrongOrBlank.some(q => [1, 2, 3, 5].includes(parseInt(q)))) {
+                    suggestions.push("Revisit math basics.");
+                }
+                if (wrongOrBlank.some(q => [23,12,13,].includes(parseInt(q)))) {
+                    suggestions.push("Brush up on world geography.");
+                }
+                if (wrongOrBlank.some(q => [3,7,8,9,].includes(parseInt(q)))) {
+                    suggestions.push("Study basic chemistry concepts.");
+                }
+                if (wrongOrBlank.some(q => [1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25].includes(parseInt(q)))) {
+                    suggestions.push("Nigga dont fuck up and hire a tutor from curator . bitch pay us money ");
+                }
+
+                document.getElementById("exam-section").classList.add("hidden");
+                document.getElementById("result-section").classList.remove("hidden");
+                document.getElementById("result-message").textContent = `Your score: ${score}`;
+                document.getElementById("suggestions").innerHTML = suggestions.join("<br>");
+
+                try {
+                    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: `Exam Results:\nRoll: ${document.getElementById("roll").value}\nScore: ${score}\nSuggestions:\n${suggestions.join("\n")}`
+                        })
+                    });
+                } catch (error) {
+                    console.error("Error sending results to Telegram:", error);
+                }
+            }
+
+            document.getElementById("submit-btn").addEventListener("click", submitExam);
+        </script>
+    </div>
+</body>
+</html>
